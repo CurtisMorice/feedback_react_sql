@@ -3,6 +3,17 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/App/App';
 import registerServiceWorker from './registerServiceWorker';
+import { HashRouter as Router, Link, Route} from 'react-route-dom';
+import logger from 'redux-logger';
+import{ createStore, combineReducers, applyMiddleware} from 'redux';
+import {Provider} from 'react-redux';
+
+const storeInstance = createStore(
+    combineReducers({
+
+    }),
+    applyMiddleware(Logger)
+);
 
 ReactDOM.render(<App />, document.getElementById('root'));
 registerServiceWorker();

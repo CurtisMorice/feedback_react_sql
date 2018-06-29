@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './App.css';
+import { connect } from 'react-redux';
+import  {HashRouter as Router, Route, Link} from 'react-route-dom';
+
 
 class App extends Component {
   render() {
