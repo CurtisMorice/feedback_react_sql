@@ -9,7 +9,14 @@ constructor(){
 
     }
 }
+render(){
+    return(
+<div>
+    <h2>You are in the Support Page</h2>
+</div>
 
+    )
+}
 
 
 

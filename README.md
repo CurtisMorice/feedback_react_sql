@@ -10,6 +10,7 @@
 ### SETUP
 
 Create your database and tables using the provided `data.sql` file. Start the server.
+ [x]Created Database in pool and gave it 'prime_feedback' also created database on Postico andf copied in the data.sql file creation table and example. 
 
 ```
 npm install

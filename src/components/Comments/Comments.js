@@ -10,6 +10,12 @@ constructor(){
 
     }
 }
-
+render(){
+    return(
+        <div>
+            <h2>You are in the Comments Page</h2>
+        </div>
+    )
+}
 }
 export default Comments;
