@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import { connect } from 'react-redux';
 import { HashRouter as Router,Switch, Route, Redirect, Link} from 'react-router-dom';
-
+import axios from 'axios';
 // import Card from '@material-ui/core/Card';
 // import CardActions from '@material-ui/core/CardActions';
 // import CardContent from '@material-ui/core/CardContent';
@@ -19,23 +19,31 @@ class Feeling extends Component {
     constructor(){
 super();
 this.state = {
-  
-    feeling: '',
+    value: '',
+    input: '',
+    feeling: ''
     }
  }
  
-handleSubmit = (event) =>{ 
-const action = {type: 'SUBMIT_FEELING', payload: this.state.feeling };
+handleSubmit = (form) =>{ 
+
+   form.preventDefault();
+   console.log('You have selected:', this.state.selectedOption);
+   const action = {type: 'SUBMIT_FEELING', payload: this.state.selectedOption };
    this.props.dispatch(action) 
    console.log({action});
-   event.preventDefault();
   
  }
+ submitFeedback = () =>{
+    axios.post('/feedback', this.props.feedbackReducer)
+    .then().catch();
+}
  
- handleChange = (event) => {
+ handleOptionChange = (event) => {
 
     this.setState({
-        feeling: event.target.value,
+        // input: event.target.value,
+        // feeling: event.target.value,
         selectedOption: event.target.value
       
     });
@@ -48,9 +56,9 @@ this.state.event;
 console.log(event);
 
 }
-getInitialState =() =>{
+getInitialState =() => {
     return {
-      selectedOption: 'option1'
+      selectedOption: '1'
     };
   }
 
@@ -64,30 +72,30 @@ return (
       <form onSubmit={this.handleSubmit}>
     <div className='radio'>
     <label> 
-        <input onChange={this.handleChange} type='radio' checked={this.state.getInitialState === 'option1'} value='option1' value={this.state.feeling} name='feeling' inputid='one'/>
+        <input onChange={this.handleOptionChange} type='radio' checked={this.state.selectedOption === '1'} value='1' name='feeling' inputid='one'/>
         </label>
         <label htmlFor='one'>One</label>
         <label>
-        <input onChange={this.handleChange} type='radio' checked={this.state.getInitialState === 'option2'} value='option2' value={this.state.feeling} name='feeling' inputid='two'/>
+        <input onChange={this.handleOptionChange} type='radio' checked={this.state.selectedOption === '2'} value='2' name='feeling' inputid='two'/>
         </label>
         <label htmlFor='two'>Two</label>
         <label>
-        <input onChange={this.handleChange} type='radio' checked={this.state.getInitialState === 'option3'} value='option3' value={this.state.feeling} name='feeling' inputid='three'/>
+        <input onChange={this.handleOptionChange} type='radio' checked={this.state.selectedOption === '3'} value='3' name='feeling' inputid='three'/>
         </label>
         <label htmlFor='three'>Three</label>
         <label>
-        <input onChange={this.handleChange} type='radio' checked={this.state.getInitialState === 'option4'} value='option4' value={this.state.feeling} name='feeling' inputid='four'/>
+        <input onChange={this.handleOptionChange} type='radio' checked={this.state.selectedOption === '4'} value='4' name='feeling' inputid='four'/>
         </label>
         <label htmlFor='four'>Four</label>
         <label>
-        <input onChange={this.handleChange} type='radio' checked={this.state.getInitialState === 'option5'} value='option5' value={this.state.feeling} name='feeling' inputid='five'/>
+        <input onChange={this.handleOptionChange} type='radio' checked={this.state.selectedOption === '5'} value='5' name='feeling' inputid='five'/>
         </label>
         <label htmlFor='five'>Five</label>
         </div>
-        </form>
-                 <Button size="small" color="primary" onClick={() => this.handleClick(this)}>Submit</Button>
+        
+                 <Button type='submit' className ='btn btn-default'  size="small" color="primary" onClick={() => this.handleClick(this)}>Submit</Button>
 
-     
+     </form>
        
 </div>
 
