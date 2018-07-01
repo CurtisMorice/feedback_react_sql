@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import './App.css';
-import { connect } from 'react-redux';
-import  {HashRouter as Router,Switch, Route, Redirect, Link,NavLink} from 'react-router-dom';
+import  {HashRouter as Router, Route, NavLink} from 'react-router-dom';
 import Header from '../Header/Header';
-import Radio from '../Radio/Radio';
 import Feeling from '../Feeling/Feeling';
 import Home from '../Home/Home';
 import Understanding from '../Understanding/Understanding';

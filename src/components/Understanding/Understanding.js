@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import Button from '@material-ui/core/Button';
-import { HashRouter as Router, Switch, Route, Redirect, Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 
@@ -30,7 +30,7 @@ handleSubmit = (form) =>{
   
  }
  submitFeedback = () =>{
-    axios.post('/feedback', this.props.feedbackReducer)
+    axios.post('api/feedback', this.props.feedbackReducer)
     .then().catch();
 }
  
@@ -87,7 +87,7 @@ getInitialState =() => {
          <label htmlFor='five'><em>5ive knives</em></label>
          </div>
          
-                  <Button type='submit' className ='btn btn-default'  size="small" color="primary" onClick={() => this.handleClick(this)}>Submit</Button>
+                  <Button type='submit' className ='btn btn-default'  size="small" color="primary" onClick={() => this.handleClick(this)}> <Link to={'/support'}>Next</Link></Button>
  
       </form>
         

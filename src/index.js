@@ -7,18 +7,18 @@ import registerServiceWorker from './registerServiceWorker';
 import logger from 'redux-logger';
 import{ createStore, combineReducers, applyMiddleware} from 'redux';
 import { Provider } from 'react-redux';
-import axios from 'axios';
+// import axios from 'axios';
 
-const postFeedbackToDatabase = (feedback) => {
-    axios.post('/api/feedback', feedback)
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((error) => {
-        console.log(error);
-      })
-      
-  }
+// const postFeedbackToDatabase = (feedback) => {
+//     axios.post('/api/feedback', feedback)
+//       .then((response) => {
+//         console.log(response);
+//       })
+//       .catch((error) => {
+//         console.log(error);
+//       })
+//   }
+
   const databaseReducer = (state = [], action) => {
     if( action.type === 'GET'){
         return [...action.payload];
@@ -30,7 +30,7 @@ const postFeedbackToDatabase = (feedback) => {
   const feedbackReducer = (state = { feeling:'', understanding: '', support: '', comment: ''}, action ) => {
     if (action.type === 'SUBMIT_FEELING') {
       return {...state, feeling: action.payload};
-    } else if (action.type === 'SUBMIT_COMPREHENSION') {
+    } else if (action.type === 'SUBMIT_UNDERSTANDING') {
       return  {...state, understanding: action.payload};
     } else if (action.type === 'SUBMIT_SUPPORT') {
       return {...state, support: action.payload};
@@ -47,6 +47,8 @@ const postFeedbackToDatabase = (feedback) => {
 const storeInstance = createStore(
     combineReducers({
         feedbackReducer,
+        databaseReducer,
+        // postFeedbackToDatabase,
     }),
     applyMiddleware(logger)
 );

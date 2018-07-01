@@ -10,7 +10,7 @@ render(){
 <div>
     <h2>Home is where the heart is but in this case its just another place on this site that has no functionality</h2>
 
-<Radio />
+
     <br/>
 
 </div>

@@ -1,16 +1,9 @@
 import React, { Component } from 'react';
-import { withStyles } from '@material-ui/core/styles';
 import { connect } from 'react-redux';
-import { HashRouter as Router,Switch, Route, Redirect, Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
-import Understanding from '../Understanding/Understanding';
-// import Card from '@material-ui/core/Card';
-// import CardActions from '@material-ui/core/CardActions';
-// import CardContent from '@material-ui/core/CardContent';
-// import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
-// import Typography from '@material-ui/core/Typography';
-// import CardBox from '../CardBox/CardBox';
+
 
 
 const mapReduxStateToProps = (reduxStore) => ({
@@ -20,7 +13,6 @@ class Feeling extends Component {
     constructor(){
 super();
 this.state = {
-    value: '',
     input: '',
     feeling: ''
     }
@@ -36,8 +28,12 @@ handleSubmit = (form) =>{
   
  }
  submitFeedback = () =>{
-    axios.post('/feedback', this.props.feedbackReducer)
-    .then().catch();
+    axios.post('api/feedback', this.props.feedbackReducer)
+    .then((response)=>{
+
+    }).catch((error)=>{
+      console.log('Error in post', error);
+    })
 }
  
  handleOptionChange = (event) => {
@@ -52,9 +48,7 @@ handleSubmit = (form) =>{
  
 
 handleClick = (event) => {
-
 this.state.event;
-console.log(event);
 
 }
 getInitialState =() => {
@@ -65,9 +59,7 @@ getInitialState =() => {
 
 
 render() {
-    if(this.state.understanding === true){
-        <Redirect />
-    }
+  
 return (
     
   <div>
@@ -86,7 +78,7 @@ return (
         <label>
         <input onChange={this.handleOptionChange} type='radio' checked={this.state.selectedOption === '3'} value='3' name='feeling' inputid='three'/>
         </label>
-        <label htmlFor='three'></label>
+        <label htmlFor='three'><em>I got out of bed</em></label>
         <label>
         <input onChange={this.handleOptionChange} type='radio' checked={this.state.selectedOption === '4'} value='4' name='feeling' inputid='four'/>
         </label>
@@ -96,12 +88,8 @@ return (
         </label>
         <label htmlFor='five'><em>5ive knives</em></label>
         </div>
-        
                 
-                 <Button type='submit' className ='btn btn-default'  size="small" color="primary" onClick={() => this.handleClick(this)}>Submit</Button>
-               
-                
-                
+                 <Button type='submit' className ='btn btn-default'  size="small" color="primary" onClick={() => this.handleClick(this)}><Link to={'/understanding'}>Next </Link></Button>       
      </form>
        
 </div>
