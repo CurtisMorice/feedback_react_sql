@@ -22,7 +22,7 @@ this.state = {
  
 handleSubmit = (form) =>{ 
 
-   form.preventDefault();
+  
    console.log('You have selected:', this.state.selectedOption);
    const action = {type: 'SUBMIT_UNDERSTANDING', payload: this.state.selectedOption };
    this.props.dispatch(action) 
@@ -63,7 +63,7 @@ getInitialState =() => {
     <div>
     <h2>Understanding is nice. I wish I was understanding how to do this weekend project. How about yourself</h2>
 
-    <form onSubmit={this.handleSubmit}>
+    <form >
      <div className='radio'>
      <label> 
          <input onChange={this.handleOptionChange} type='radio' checked={this.state.selectedOption === '1'} value='1' name='feeling' inputid='one'/>
@@ -87,7 +87,7 @@ getInitialState =() => {
          <label htmlFor='five'><em>5ive knives</em></label>
          </div>
          
-                  <Button type='submit' className ='btn btn-default'  size="small" color="primary" onClick={() => this.handleClick(this)}> <Link to={'/support'}>Next</Link></Button>
+                  <Button type='submit' className ='btn btn-default'  size="small" color="primary" onClick={() => this.handleSubmit(this)}> <Link to={'/support'}>Next</Link></Button>
  
       </form>
         

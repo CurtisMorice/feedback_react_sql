@@ -25,7 +25,7 @@ render() {
     <div>
     <h2>How are you Feeling? Like we care because we are giving you a button instead of an input box because I cant figure out how to get either to an array</h2>
 
-<form onSubmit={this.handleSubmit}>
+<form >
 <div className='radio'>
 <label> 
  <input onChange={this.handleOptionChange} type='radio' checked={this.state.selectedOption === '1'} value='1' name='feeling' inputid='one'/>
@@ -49,7 +49,7 @@ render() {
  <label htmlFor='five'><em>5ive knives</em></label>
  </div>
          
-          <Button type='submit' className ='btn btn-default'  size="small" color="primary" onClick={() => this.handleClick(this)}><Link to={'/understanding'}>Next </Link></Button>       
+          <Button type='submit' className ='btn btn-default'  size="small" color="primary" onClick={() => this.handleSubmit(this)}><Link to={'/understanding'}>Next </Link></Button>       
 </form>
 
 </div>

@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
-
+import { connect } from 'react-redux';
 import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom';
-
 import axios from 'axios';
+
+const mapReduxStateToProps = (reduxStore) => ({
+    reduxStore
+  } )
 
 class Support extends Component {
 constructor(){
@@ -17,9 +20,9 @@ constructor(){
      
     handleSubmit = (form) =>{ 
     
-       form.preventDefault();
+       
        console.log('You have selected:', this.state.selectedOption);
-       const action = {type: 'SUBMIT_UNDERSTANDING', payload: this.state.selectedOption };
+       const action = {type: 'SUBMIT_SUPPORT', payload: this.state.selectedOption };
        this.props.dispatch(action) 
        console.log('this.props.dispatch(action)',{action});
       
@@ -56,7 +59,7 @@ render(){
         <div>
         <h2>My 30 year old table has more support than I do</h2>
     
-        <form onSubmit={this.handleSubmit}>
+        <form >
          <div className='radio'>
          <label> 
              <input onChange={this.handleOptionChange} type='radio' checked={this.state.selectedOption === '1'} value='1' name='feeling' inputid='one'/>
@@ -81,7 +84,7 @@ render(){
              <label htmlFor='five'><em>I love helping other people</em></label>
              </div>
              
-                      <Button type='submit' className ='btn btn-default'  size="small" color="primary" onClick={() => this.handleClick(this)}> <Link to={'/comments'}>Next</Link></Button>
+                      <Button type='submit' className ='btn btn-default'  size="small" color="primary" onClick={() => this.handleSubmit(this)}> <Link to={'/comments'}>Next</Link></Button>
      
           </form>
             
@@ -95,4 +98,4 @@ render(){
 
 
 }
-export default Support;
+export default connect(mapReduxStateToProps)(Support);

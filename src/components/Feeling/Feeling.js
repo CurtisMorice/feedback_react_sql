@@ -20,7 +20,7 @@ this.state = {
  
 handleSubmit = (form) =>{ 
 
-   form.preventDefault();
+   
    console.log('You have selected:', this.state.selectedOption);
    const action = {type: 'SUBMIT_FEELING', payload: this.state.selectedOption };
    this.props.dispatch(action) 
@@ -51,13 +51,13 @@ handleClick = (event) => {
 this.state.event;
 
 }
-getInitialState =() => {
+getInitialState =() => {  //this function handles the radio
     return {
       selectedOption: '1'
     };
   }
 
-
+//   onSubmit={this.handleSubmit}
 render() {
   
 return (
@@ -65,7 +65,7 @@ return (
   <div>
            <h2>How are you Feeling? Like we care because we are giving you a button instead of an input box because I cant figure out how to get either to an array</h2>
 
-      <form onSubmit={this.handleSubmit}>
+      <form > 
     <div className='radio'>
     <label> 
         <input onChange={this.handleOptionChange} type='radio' checked={this.state.selectedOption === '1'} value='1' name='feeling' inputid='one'/>
@@ -89,7 +89,7 @@ return (
         <label htmlFor='five'><em>5ive knives</em></label>
         </div>
                 
-                 <Button type='submit' className ='btn btn-default'  size="small" color="primary" onClick={() => this.handleClick(this)}><Link to={'/understanding'}>Next </Link></Button>       
+                 <Button type='submit' className ='btn btn-default'  size="small" color="primary" onClick={() => this.handleSubmit(this)}><Link to={'/understanding'}>Next </Link></Button>       
      </form>
        
 </div>
