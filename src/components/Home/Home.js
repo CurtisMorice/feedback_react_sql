@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import CardBox from '../CardBox/CardBox';
-import SimpleCard from '../CardBox/CardBox';
+import Radio from '../Radio/Radio';
+
 
 
 class Home extends Component {
@@ -8,11 +8,11 @@ class Home extends Component {
 render(){
     return(
 <div>
-    <h2>Your Feelings Aren't Right or Wrong..They're just feelings...</h2>
+    <h2>Home is where the heart is but in this case its just another place on this site that has no functionality</h2>
 
-<CardBox />
-    <br/>>
-<SimpleCard />
+<Radio />
+    <br/>
+
 </div>
 
     );

@@ -19,24 +19,34 @@ const postFeedbackToDatabase = (feedback) => {
       })
       
   }
-  
-  const feedback = (state = {}, action ) => {
-    if (action.type === 'SUBMIT_FEELING') {
-      state.feeling = action.payload;
-    } else if (action.type === 'SUBMIT_COMPREHENSION') {
-      state.understanding = action.payload;
-    } else if (action.type === 'SUBMIT_SUPPORT') {
-      state.supported = action.payload;
-    } else if (action.type === 'FINAL_SUBMIT_COMMENTS') {
-      state.comments = action.payload;
-      postFeedbackToDatabase(state);
-      state = {};
+  const databaseReducer = (state = [], action) => {
+    if( action.type === 'GET'){
+        return [...action.payload];
     }
     return state;
-  }
+} // end databaseReducer
+
+  
+  const feedbackReducer = (state = { feeling:'', understanding: '', support: '', comment: ''}, action ) => {
+    if (action.type === 'SUBMIT_FEELING') {
+      return {...state, feeling: action.payload};
+    } else if (action.type === 'SUBMIT_COMPREHENSION') {
+      return  {...state, understanding: action.payload};
+    } else if (action.type === 'SUBMIT_SUPPORT') {
+      return {...state, support: action.payload};
+    } else if (action.type === 'SUBMIT_COMMENTS') {
+      return {...state, comment: action.payload};
+    } else if(action.type === 'RESET'){ return action.payload
+    } else {
+      return state;
+    }
+  }// end of feedBackReducer
+  
+
+  
 const storeInstance = createStore(
     combineReducers({
-        feedback,
+        feedbackReducer,
     }),
     applyMiddleware(logger)
 );
