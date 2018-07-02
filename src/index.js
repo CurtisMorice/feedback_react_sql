@@ -7,17 +7,6 @@ import registerServiceWorker from './registerServiceWorker';
 import logger from 'redux-logger';
 import{ createStore, combineReducers, applyMiddleware} from 'redux';
 import { Provider } from 'react-redux';
-// import axios from 'axios';
-
-// const postFeedbackToDatabase = (feedback) => {
-//     axios.post('/api/feedback', feedback)
-//       .then((response) => {
-//         console.log(response);
-//       })
-//       .catch((error) => {
-//         console.log(error);
-//       })
-//   }
 
 
 
@@ -42,8 +31,8 @@ import { Provider } from 'react-redux';
 const storeInstance = createStore(
     combineReducers({
         feedbackReducer,
-        // databaseReducer,
-        // postFeedbackToDatabase,
+       
+       
     }),
     applyMiddleware(logger)
 );

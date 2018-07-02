@@ -15,10 +15,20 @@ class ThankYou extends Component{
         }
     
         submitFeedback(){
-            axios.post('api/feedback', this.props.feedbackReducer).then().catch((error)=>{
-                alert('You have completed your feedback, thanks! Would you like to start over? If so please push the "I want to be HaPPiEr button');
-            }); 
-        }
+            axios.post('api/feedback', this.props.feedbackReducer)      
+            .then((response) => {
+                window.confirm('You have completed your feedback, thanks! Would you like to start over? If so please push the "I want to be HaPPiEr button')
+
+                console.log(response);
+              }) 
+              .catch((error) => {
+                console.log(error);
+              })
+              
+          }
+               
+             
+        
     
         render(){
             return(
@@ -28,7 +38,10 @@ class ThankYou extends Component{
             );
         }
     }
-    
+   
+
+
+
     
 
 export default connect(mapReduxStateToProps)(ThankYou);
