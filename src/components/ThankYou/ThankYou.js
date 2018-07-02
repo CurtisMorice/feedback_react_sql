@@ -7,27 +7,28 @@ import axios from 'axios';
 const mapReduxStateToProps = (reduxStore) => ({
     reduxStore
   } )
+  
 
 class ThankYou extends Component{
-        componentDidMount(){
-            this.submitFeedback();
-            this.props.dispatch({type: 'CLEAR', payload: {}});
-        }
+     
     
         submitFeedback(){
-            axios.post('api/feedback', this.props.feedbackReducer)      
+            axios.post('/api/feedback', this.props.feedbackReducer)      
             .then((response) => {
                 window.confirm('You have completed your feedback, thanks! Would you like to start over? If so please push the "I want to be HaPPiEr button')
 
                 console.log(response);
               }) 
               .catch((error) => {
-                console.log(error);
+                console.log(error.response);
               })
               
           }
                
-             
+          componentDidMount(){
+            this.submitFeedback();
+            this.props.dispatch({type: 'CLEAR', payload: {}});
+        }
         
     
         render(){

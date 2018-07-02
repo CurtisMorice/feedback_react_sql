@@ -56,7 +56,7 @@ class Comment extends Component{
                 <form>
                 <h2>Tell us anything....I MEAN AnyThInG!?!?!</h2>         
                 <textarea id="" name="textarea" type={"text"}  onChange={this.handleChange} placeholder="whatever you want to enter in this box "></textarea>
-                <Button type='submit' className ='btn btn-default'  size="small" color="primary" onClick={() => this.handleSubmit(this)}>  <Link to='/thankyou'> Next </Link></Button>
+                <Button type='' className ='btn btn-default'  size="small" color="primary" onClick={() => this.handleSubmit(this)}>  <Link to='/thankyou'> Next </Link></Button>
                 </form>
             </div>
         );

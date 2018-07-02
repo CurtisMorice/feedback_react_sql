@@ -19,6 +19,7 @@ class App extends Component {
     return (
       <div>
         <Header header />
+        
         <Router>
         <div>
           
@@ -49,14 +50,14 @@ class App extends Component {
           </ul>
           
       <hr/>
-
+      <Route exact path = {'/'} component={Home} />
       <Route path = {'/feeling'} component={Feeling} />
       <Route path = {'/support'} component={Support} /> 
       <Route path = {'/understanding'} component={Understanding} />
       <Route path = {'/comments'} component={Comments} />
       <Route path='/thankyou' component={ThankYou}/>
       <Route path='/admin' component={Admin}/>
-      <Route exact path = {'/'} component={Home} />
+      
       
      </div>
      </Router>

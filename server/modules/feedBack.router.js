@@ -13,9 +13,10 @@ router.get('/', (req, res)=>{
 });
 
 router.post('/', (req, res)=>{
+    console.log('got to post');
     const feedback = req.body;
     const queryText = `INSERT INTO feedback("feeling", "understanding", "support", "comments") 
-    values ($1, $2, $3, $4)`;
+    values ($1, $2, $3, $4);`;
     pool.query(queryText, [feedback.feeling, feedback.understanding, feedback.support, feedback.comment]).then((result)=>{
         res.sendStatus(200);
     }).catch((error)=>{
