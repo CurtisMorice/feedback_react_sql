@@ -16,14 +16,14 @@ class ThankYou extends Component{
     
         submitFeedback(){
             axios.post('api/feedback', this.props.feedbackReducer).then().catch((error)=>{
-                // alert('Go back to the beginning!');
+                alert('You have completed your feedback, thanks! Would you like to start over? If so please push the "I want to be HaPPiEr button');
             }); 
         }
     
         render(){
             return(
                 <div>
-                    <button><Link to='/'>Submit more feedback</Link></button>
+                    <button><Link to='/'>HaPPiEr</Link></button>
                 </div>
             );
         }

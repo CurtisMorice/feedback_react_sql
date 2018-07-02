@@ -19,12 +19,7 @@ import { Provider } from 'react-redux';
 //       })
 //   }
 
-  const databaseReducer = (state = [], action) => {
-    if( action.type === 'GET'){
-        return [...action.payload];
-    }
-    return state;
-} // end databaseReducer
+
 
   
   const feedbackReducer = (state = { feeling:'', understanding: '', support: '', comment: ''}, action ) => {
@@ -47,7 +42,7 @@ import { Provider } from 'react-redux';
 const storeInstance = createStore(
     combineReducers({
         feedbackReducer,
-        databaseReducer,
+        // databaseReducer,
         // postFeedbackToDatabase,
     }),
     applyMiddleware(logger)
@@ -55,3 +50,12 @@ const storeInstance = createStore(
 
 ReactDOM.render(<Provider store={storeInstance}><App /></Provider>, document.getElementById('root'));
 registerServiceWorker();
+
+
+
+// const databaseReducer = (state = [], action) => {
+//   if( action.type === 'GET'){
+//       return [...action.payload];
+//   }
+//   return state;
+// } // end databaseReducer

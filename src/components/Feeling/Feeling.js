@@ -18,12 +18,11 @@ this.state = {
     }
  }
  
-handleSubmit = (form) =>{ 
-
-   
+handleSubmit = (form) =>{
+    console.log('in Feelings handleSubmit', this.state.info);
    console.log('You have selected:', this.state.selectedOption);
    const action = {type: 'SUBMIT_FEELING', payload: this.state.selectedOption };
-   this.props.dispatch(action) 
+   this.props.dispatch({...action}) 
    console.log('this.props.dispatch(action)',{action});
   
  }

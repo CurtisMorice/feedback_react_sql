@@ -20,10 +20,10 @@ constructor(){
      
     handleSubmit = (form) =>{ 
     
-       
-       console.log('You have selected:', this.state.selectedOption);
+        console.log(this.state.info);
+       console.log('You have selected:', this.state.form);
        const action = {type: 'SUBMIT_SUPPORT', payload: this.state.selectedOption };
-       this.props.dispatch(action) 
+       this.props.dispatch({...action}) 
        console.log('this.props.dispatch(action)',{action});
       
      }
