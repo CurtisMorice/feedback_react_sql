@@ -77,7 +77,7 @@ return (
         <label>
         <input onChange={this.handleOptionChange} type='radio' checked={this.state.selectedOption === '3'} value='3' name='feeling' inputid='three'/>
         </label>
-        <label htmlFor='three'><em>I got out of bed</em></label>
+        <label htmlFor='three'><em>Mehhhhhhhh</em></label>
         <label>
         <input onChange={this.handleOptionChange} type='radio' checked={this.state.selectedOption === '4'} value='4' name='feeling' inputid='four'/>
         </label>

@@ -40,8 +40,7 @@ class Comment extends Component{
                 input: event.target.value
               
             });
-         }    // input: event.target.value,
-         // feeling: event.target.value,
+         }  
          
         
         handleClick = (event) => {
